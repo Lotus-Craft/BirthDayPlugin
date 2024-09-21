@@ -1,0 +1,44 @@
+Discord-setting:
+  check: false # роботает дискорд или нет
+  Discord-token: "" #discord hook
+  Discord-channel: ""
+Birthday-boy-prefix: "&5Birthday-boy"
+currentDate: "Europe/Moscow" # зона на которою будет ориинтироваться плагин
+Messages:
+  user-no-enter-data: "Вы не указали свое день рождения пожалусто напишите комнду /birthday set (год-месяц-день)"
+  user-repitsend: "Вы уже вводили свой день рождения!"
+  user-date-invalid: "Даты не совпадают, введите команду заново"
+  user-date-addwishes: "Введенная дата: %data%  Теперь введите пожелания, чего вы бы хотели на день рождения ?"
+  user-date-confirm: "Вы точно хотите подтвердить дату %data% ? Если да, введите команду ещё раз."
+  user-add-finish: "День рождения и пожелания были записаны!"
+  user-happy-birthday-message-to-players: "У игрока %player% сегодня день рождения, поздравим его!"
+  user-happy-birthday-message: "С днём рождения, дорогой игрок!"
+  birthday-wrong-format: "Напишите в формате yyyy.MM.dd | Вы написали - %date% и это не является допустимой датой."
+  admin-delete-birthday: "Администратор %admin% удалил дату дня рождения %player%"
+  player-already-got-present: "Вы уже получили подарок сегодня!"
+  today-not-your-birthday: "У вас не сегодня день рождение"
+items:
+  book1:
+    type: ENCHANTED_BOOK
+    amount: 1
+    name: "Зачарованная книга"
+    enchantments:
+      protection: 1
+      sharpness: 2
+  book2:
+    type: ENCHANTED_BOOK
+    amount: 1
+    name: "Другая зачарованная книга"
+    enchantments:
+      efficiency: 3
+      unbreaking: 2
+  diamond_sword:
+    type: DIAMOND_SWORD
+    name: "Diamond Sword"
+    amount: 1
+  iron_sword:
+    type: IRON_SWORD
+    name: "Iron Sword"
+    amount: 2
+
+

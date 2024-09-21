@@ -1,0 +1,19 @@
+name: BirthdayPlugin
+version: '${version}'
+main: org.referix.birthdayplugin.BirthdayPlugin
+api-version: '1.16'
+depend:
+  - LuckPerms
+commands:
+  birthday:
+    description: set birthday
+    aliases:
+      - 'b'
+  birthdaycheck:
+    description: set birthday
+    aliases:
+      - 'birthdaycheck'
+  birthdaydel:
+    description: delete users birthday
+  birthdaypresent:
+    description: 'get present'
