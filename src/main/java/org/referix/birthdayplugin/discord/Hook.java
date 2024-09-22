@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import org.bukkit.Color;
 import org.referix.birthdayplugin.BirthdayPlugin;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Hook {
@@ -47,14 +48,23 @@ public class Hook {
         }
     }
 
+    // Метод для отправки сообщения на день рождения
     public static void sendPlayerHappyBirthDay(String playerName, String date) {
         if (!isInitialized()) return;
+
         TextChannel channel = jda.getTextChannelById(Objects.requireNonNull(channelId));
         EmbedBuilder builder = new EmbedBuilder();
 
+        // Получаем список сообщений на день рождения из конфига
+        List<String> birthdayMessages = BirthdayPlugin.getInstance().getConfig().getStringList("Discord-setting.birthday-messages");
+
+        // Проходим по каждому сообщению, заменяем плейсхолдеры и добавляем их в EmbedBuilder
+        for (String message : birthdayMessages) {
+            String formattedMessage = message.replace("{player}", playerName).replace("{date}", date);
+            builder.setDescription(formattedMessage);
+        }
+
         builder.setTitle("**" + playerName + "**")
-                .setDescription("**Today is `" + playerName + "`'s birthday! Let's congratulate them in the Minecraft chat " +
-                        "and Discord on this wonderful day. Let's wish them all the best and give them gifts!** \n")
                 .setColor(java.awt.Color.GREEN);
 
         if (channel != null) {
@@ -64,13 +74,24 @@ public class Hook {
         }
     }
 
+    // Метод для отправки сообщения об удалении дня рождения администратором
     public static void sendAdminDeletedBirthDay(String admin, String player) {
-        if (!isInitialized())return;
+        if (!isInitialized()) return;
+
         TextChannel channel = jda.getTextChannelById(Objects.requireNonNull(channelId));
         EmbedBuilder builder = new EmbedBuilder();
 
+        // Получаем сообщение об удалении из конфига
+        String message = BirthdayPlugin.getInstance().getConfig().getString("Discord-setting.admin-remove-message");
+        if (message != null) {
+            // Заменяем плейсхолдеры
+            String formattedMessage = message.replace("{admin}", admin).replace("{player}", player);
+            builder.setDescription(formattedMessage);
+        } else {
+            builder.setDescription("Administrator removed birthday.");
+        }
+
         builder.setTitle("**Administrator - " + admin + "**")
-                .setDescription("Removed the birthday of **" + player + "**\n")
                 .setColor(java.awt.Color.RED);
 
         if (channel != null) {

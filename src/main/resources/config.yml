@@ -1,34 +1,38 @@
 Discord-setting:
-  check: false # роботает дискорд или нет
-  Discord-token: "" #discord hook
+  check: false # whether Discord is working or not
+  Discord-token: "" # discord hook
   Discord-channel: ""
+  birthday-messages:
+    - "**Today is `{player}`'s birthday! Let's congratulate them in the Minecraft chat and Discord on this wonderful day. Let's wish them all the best and give them gifts!**"
+    - "**We wish {player} a happy birthday and lots of joy today!**"
+  admin-remove-message: "**Administrator {admin} removed the birthday of {player}.**"
 Birthday-boy-prefix: "&5Birthday-boy"
-currentDate: "Europe/Moscow" # зона на которою будет ориинтироваться плагин
+currentDate: "Europe/Moscow" # the timezone the plugin will focus on
 Messages:
-  user-no-enter-data: "Вы не указали свое день рождения пожалусто напишите комнду /birthday set (год-месяц-день)"
-  user-repitsend: "Вы уже вводили свой день рождения!"
-  user-date-invalid: "Даты не совпадают, введите команду заново"
-  user-date-addwishes: "Введенная дата: %data%  Теперь введите пожелания, чего вы бы хотели на день рождения ?"
-  user-date-confirm: "Вы точно хотите подтвердить дату %data% ? Если да, введите команду ещё раз."
-  user-add-finish: "День рождения и пожелания были записаны!"
-  user-happy-birthday-message-to-players: "У игрока %player% сегодня день рождения, поздравим его!"
-  user-happy-birthday-message: "С днём рождения, дорогой игрок!"
-  birthday-wrong-format: "Напишите в формате yyyy.MM.dd | Вы написали - %date% и это не является допустимой датой."
-  admin-delete-birthday: "Администратор %admin% удалил дату дня рождения %player%"
-  player-already-got-present: "Вы уже получили подарок сегодня!"
-  today-not-your-birthday: "У вас не сегодня день рождение"
+  user-no-enter-data: "You haven't specified your birthday. Please use the command /birthday set (year-month-day)."
+  user-repitsend: "You have already entered your birthday!"
+  user-date-invalid: "The dates do not match, please enter the command again."
+  user-date-addwishes: "Entered date: %data%  Now, what would you like to receive for your birthday?"
+  user-date-confirm: "Are you sure you want to confirm the date %data%? If yes, enter the command again."
+  user-add-finish: "Your birthday and wishes have been recorded!"
+  user-happy-birthday-message-to-players: "It's %player%'s birthday today! Let's congratulate them!"
+  user-happy-birthday-message: "Happy Birthday, dear player!"
+  birthday-wrong-format: "Please use the format yyyy.MM.dd | You entered - %date%, which is not a valid date."
+  admin-delete-birthday: "Administrator %admin% deleted the birthday of %player%."
+  player-already-got-present: "You have already received your present today!"
+  today-not-your-birthday: "Today is not your birthday."
 items:
   book1:
     type: ENCHANTED_BOOK
     amount: 1
-    name: "Зачарованная книга"
+    name: "Enchanted Book"
     enchantments:
       protection: 1
       sharpness: 2
   book2:
     type: ENCHANTED_BOOK
     amount: 1
-    name: "Другая зачарованная книга"
+    name: "Another Enchanted Book"
     enchantments:
       efficiency: 3
       unbreaking: 2
@@ -40,5 +44,3 @@ items:
     type: IRON_SWORD
     name: "Iron Sword"
     amount: 2
-
-

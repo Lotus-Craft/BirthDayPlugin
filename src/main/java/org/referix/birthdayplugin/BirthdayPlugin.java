@@ -1,8 +1,6 @@
 package org.referix.birthdayplugin;
 
-import org.bukkit.ChatColor;
-import org.bukkit.block.Block;
-import org.bukkit.block.data.BlockData;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.referix.birthdayplugin.birthdaysetsystem.BirthdaySetLissener;
 import org.referix.birthdayplugin.commands.BirthDayDelete;
@@ -13,9 +11,6 @@ import org.referix.birthdayplugin.discord.Hook;
 import org.referix.birthdayplugin.listeners.WishesListener;
 import org.referix.birthdayplugin.sql.DatabaseManager;
 import org.referix.birthdayplugin.utils.ConfigUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public final class BirthdayPlugin extends JavaPlugin {
 
@@ -30,6 +25,8 @@ public final class BirthdayPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        int pluginId = 23439; // <-- Replace with the id of your plugin!
+        Metrics metrics = new Metrics(this, pluginId);
         // Проверяем, существует ли папка плагина
         if (!getDataFolder().exists()) {
             // Если папка не существует, создаем ее
