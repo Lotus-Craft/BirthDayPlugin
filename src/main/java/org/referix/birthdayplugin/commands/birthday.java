@@ -30,7 +30,7 @@ public class birthday extends AbstractCommand {
     @Override
     public boolean execute(CommandSender sender, String label, String[] args) {
         if (args.length == 1 && args[0].equalsIgnoreCase("reload") && sender.hasPermission("birthday.reload")) {
-            sender.sendMessage("Конфиг перезагружен");
+            sender.sendMessage("Config reloading");
             BirthdayPlugin.getInstance().reloadConfig();
         }
         if (args.length == 2 || args.length == 1 && args[0].equalsIgnoreCase("set")){

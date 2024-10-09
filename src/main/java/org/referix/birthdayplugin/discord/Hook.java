@@ -60,7 +60,7 @@ public class Hook {
 
         // Проходим по каждому сообщению, заменяем плейсхолдеры и добавляем их в EmbedBuilder
         for (String message : birthdayMessages) {
-            String formattedMessage = message.replace("{player}", playerName).replace("{date}", date);
+            String formattedMessage = message.replace("%player%", playerName).replace("%date%", date);
             builder.setDescription(formattedMessage);
         }
 
@@ -85,7 +85,7 @@ public class Hook {
         String message = BirthdayPlugin.getInstance().getConfig().getString("Discord-setting.admin-remove-message");
         if (message != null) {
             // Заменяем плейсхолдеры
-            String formattedMessage = message.replace("{admin}", admin).replace("{player}", player);
+            String formattedMessage = message.replace("%admin%", admin).replace("%player%", player);
             builder.setDescription(formattedMessage);
         } else {
             builder.setDescription("Administrator removed birthday.");

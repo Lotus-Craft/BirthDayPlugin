@@ -18,6 +18,7 @@ import org.referix.birthdayplugin.sql.DatabaseManager;
 import org.referix.birthdayplugin.utils.ConfigUtils;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.UUID;
@@ -44,12 +45,12 @@ public class BirthdaySetLissener implements Listener {
 
         // Сравниваем даты
         if (isTodayPlayerBirthday(p, databaseManager)) {
-                p.sendMessage(BirthdayPlugin.getInstance().configUtils.userHappyBirthday());
+                p.sendMessage(BirthdayPlugin.getInstance().configUtils.userHappyBirthday(getAge(p)));
                 spawnFireworks(p.getLocation(), 5);
                 nameBirthDayBoy = p.getName();
             if (!databaseManager.getPlayerIsCongratulate(playerName)) {
                 setBirthdayPerfix.setPrefix(p); // вызываем метод установки префикса только один раз
-                sendAllPlayers(BirthdayPlugin.getInstance().configUtils.userHappyBirthdayEveryOne(playerName));
+                sendAllPlayers(BirthdayPlugin.getInstance().configUtils.userHappyBirthdayEveryOne(playerName,getAge(p)));
                 sendPlayerHappyBirthDay(playerName,birthdayFromDB.toString());
                 databaseManager.updatePlayerIsCongratulate(playerName, true);
 //                birthdayPrefixSet.put(e.getPlayer().getUniqueId(), true);
@@ -60,6 +61,17 @@ public class BirthdaySetLissener implements Listener {
             databaseManager.updatePlayerIsCongratulate(playerName, false);
             //System.out.println("День рождения игрока " + playerName + " не совпадает с текущей датой в Москве.");
         }
+    }
+
+    private int getAge(Player player) {
+        LocalDate dateBirth = BirthdayPlugin.getInstance().databaseManager.getBirthDay(player.getName());
+        if (dateBirth == null) {
+            // Якщо дата народження не знайдена, можна повернути 0 або обробити якось інакше
+            return 0;
+        }
+
+        LocalDate now = LocalDate.now();  // Поточна дата
+        return Period.between(dateBirth, now).getYears()+1;  // Підрахунок різниці у роках
     }
 
     public void sendAllPlayers(String message){

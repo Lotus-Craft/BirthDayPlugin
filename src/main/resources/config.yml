@@ -3,24 +3,24 @@ Discord-setting:
   Discord-token: "" # discord hook
   Discord-channel: ""
   birthday-messages:
-    - "**Today is `{player}`'s birthday! Let's congratulate them in the Minecraft chat and Discord on this wonderful day. Let's wish them all the best and give them gifts!**"
-    - "**We wish {player} a happy birthday and lots of joy today!**"
-  admin-remove-message: "**Administrator {admin} removed the birthday of {player}.**"
+    - "**Today is `%player%`'s birthday! Let's congratulate them in the Minecraft chat and Discord on this wonderful day. Let's wish them all the best and give them gifts!**"
+    - "**We wish %player% a happy birthday and lots of joy today!**"
+  admin-remove-message: "**Administrator %admin% removed the birthday of %player%.**"
 Birthday-boy-prefix: "&5Birthday-boy"
 currentDate: "Europe/Moscow" # the timezone the plugin will focus on
 Messages:
-  user-no-enter-data: "You haven't specified your birthday. Please use the command /birthday set (year-month-day)."
-  user-repitsend: "You have already entered your birthday!"
-  user-date-invalid: "The dates do not match, please enter the command again."
-  user-date-addwishes: "Entered date: %data%  Now, what would you like to receive for your birthday?"
-  user-date-confirm: "Are you sure you want to confirm the date %data%? If yes, enter the command again."
-  user-add-finish: "Your birthday and wishes have been recorded!"
-  user-happy-birthday-message-to-players: "It's %player%'s birthday today! Let's congratulate them!"
-  user-happy-birthday-message: "Happy Birthday, dear player!"
-  birthday-wrong-format: "Please use the format yyyy.MM.dd | You entered - %date%, which is not a valid date."
-  admin-delete-birthday: "Administrator %admin% deleted the birthday of %player%."
-  player-already-got-present: "You have already received your present today!"
-  today-not-your-birthday: "Today is not your birthday."
+  user-no-enter-data: "&#3498dbYou haven't specified your birthday. Please use the command /birthday set (year-month-day)."
+  user-repitsend: "&#e74c3cYou have already entered your birthday!"
+  user-date-invalid: "&#e67e22The dates do not match, please enter the command again."
+  user-date-addwishes: "&#2ecc71Entered date: %data%  Now, what would you like to receive for your birthday?"
+  user-date-confirm: "&#9b59b6Are you sure you want to confirm the date %data%? If yes, enter the command again."
+  user-add-finish: "&#1abc9cYour birthday and wishes have been recorded!"
+  user-happy-birthday-message-to-players: "&#f1c40fIt's %player%'s birthday today! Let's congratulate them! %age%"
+  user-happy-birthday-message: "&#2ecc71Happy Birthday, dear player!"
+  birthday-wrong-format: "&#e74c3cPlease use the format yyyy.MM.dd | You entered - %date%, which is not a valid date."
+  admin-delete-birthday: "&#c0392bAdministrator %admin% deleted the birthday of %player%."
+  player-already-got-present: "&#e74c3cYou have already received your present today!"
+  today-not-your-birthday: "&#e74c3cToday is not your birthday."
 items:
   book1:
     type: ENCHANTED_BOOK
