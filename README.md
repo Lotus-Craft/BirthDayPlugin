@@ -26,6 +26,6 @@
 
 ---
 
-Feel free to reach out for feedback on Discord (**referix**) or Telegram [@Referixs](https://t.me/Referixs).
+Feel free to reach out for feedback on Discord https://discord.gg/EK4QmuKmWD
 
 *This is a beta version.*
