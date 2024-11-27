@@ -3,7 +3,7 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '8.0.0'
 }
 
-group = 'org.referix'
+group = 'org.lotusstudio'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -16,23 +16,28 @@ repositories {
         name = "sonatype"
         url = "https://oss.sonatype.org/content/groups/public/"
     }
+    maven {
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
 }
 
 dependencies {
     compileOnly "org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT"
     implementation 'org.jetbrains:annotations:15.0'
-    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     implementation 'org.xerial:sqlite-jdbc:3.34.0'
     implementation 'org.apache.commons:commons-lang3:3.14.0'
     implementation("net.dv8tion:JDA:5.0.0-beta.22")
     compileOnly 'net.luckperms:api:5.4'
+    implementation 'org.bstats:bstats-bukkit:3.0.0'
+    compileOnly 'me.clip:placeholderapi:2.11.6'
 }
 
 shadowJar {
     archiveBaseName.set('BirthDay')
     archiveClassifier.set('')
     archiveVersion.set('1.0-SNAPSHOT')
-    relocate 'net.dv8tion.jda', 'your.plugin.shadow.jda'
+    relocate 'net.dv8tion.jda', 'your.plugin.shadow.jda' // Relocate JDA
+    relocate 'org.bstats', 'your.plugin.shadow.bstats'  // Relocate bStats
 }
 def targetJavaVersion = 16
 java {

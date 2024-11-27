@@ -25,7 +25,7 @@ public final class BirthdayPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        int pluginId = 23439; // <-- Replace with the id of your plugin!
+        int pluginId = 23439;
         Metrics metrics = new Metrics(this, pluginId);
         // Проверяем, существует ли папка плагина
         if (!getDataFolder().exists()) {
@@ -44,6 +44,13 @@ public final class BirthdayPlugin extends JavaPlugin {
         if (configUtils.getCheckDiscod().equals(true)){
             Hook.init();
         }
+
+        if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            new BirthdayPlaceholderExpansion(this).register();
+        } else {
+            System.out.println("Placeholder didn't hook");
+        }
+
         new birthday("birthday");
         new BirthDayDelete("birthdaydel");
         new chekbirthday("birthdaycheck");
